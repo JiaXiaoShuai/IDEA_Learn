@@ -11,7 +11,9 @@ public class InnerClass {
     }
 
     class Ba {
+        public Ba(){
 
+        }
     }
 
     interface F {
