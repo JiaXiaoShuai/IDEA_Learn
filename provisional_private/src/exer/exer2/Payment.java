@@ -1,4 +1,4 @@
-package exer2;
+package exer.exer2;
 
 public enum Payment implements Payable{
     ALIPAY("支付宝"),WECHAT("微信"),CREDITCARD("信用卡"),DEPOSITCAD("储蓄卡");

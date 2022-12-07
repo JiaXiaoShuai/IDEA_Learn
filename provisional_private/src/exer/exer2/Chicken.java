@@ -1,4 +1,4 @@
-package exer2;
+package exer.exer2;
 
 public class Chicken extends Bird implements Flyable{
     @Override

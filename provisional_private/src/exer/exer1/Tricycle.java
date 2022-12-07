@@ -1,4 +1,4 @@
-package exer;
+package exer.exer1;
 
 public class Tricycle extends Vehicle{
     @Override

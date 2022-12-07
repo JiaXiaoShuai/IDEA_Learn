@@ -1,4 +1,4 @@
-package exer3;
+package exer.exer3;
 
 public class ArrayTools {
     public static void print(Object[] arr){

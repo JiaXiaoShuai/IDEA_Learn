@@ -1,4 +1,4 @@
-package exer3;
+package exer.exer3;
 
 import java.util.function.Predicate;
 

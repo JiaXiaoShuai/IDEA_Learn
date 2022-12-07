@@ -1,4 +1,4 @@
-package exer;
+package exer.exer1;
 
 public abstract class Vehicle {
     private int wheels;//轮子数量

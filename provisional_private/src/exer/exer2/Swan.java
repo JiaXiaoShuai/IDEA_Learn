@@ -1,4 +1,4 @@
-package exer2;
+package exer.exer2;
 
 public class Swan extends Bird implements Flyable,Swimming{
     @Override

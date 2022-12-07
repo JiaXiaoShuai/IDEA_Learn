@@ -1,4 +1,4 @@
-package exer;
+package exer.exer1;
 
 public class Test {
     public static void main(String[] args) {
