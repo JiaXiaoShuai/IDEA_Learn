@@ -6,6 +6,9 @@ public class MyArrayList implements Iterable{
     private Object[] all = new Object[10];
     private int total = 0;
 
+
+
+
     /**
      * 用于添加一个元素到当前容器中，如果数组all已满，不添加了
      * @param element 要添加的元素
