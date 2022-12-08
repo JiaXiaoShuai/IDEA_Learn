@@ -14,26 +14,29 @@ public class TestMyArrayList {
             System.out.println(obj);
         }
 
+        System.out.println("---------------------");
         list.set(1,"javaee");
         for (Object obj : list) {
             System.out.println(obj);
         }
 
+        System.out.println("---------------------");
         list.remove(1);
         for (Object obj : list) {
             System.out.println(obj);
         }
 
-        list.removePlus(1);
-        for (Object obj : list) {
-            System.out.println(obj);
-        }
         System.out.println("---------------------");
-        System.out.println(list.get(1));
+        list.removePlus(4);
         for (Object obj : list) {
             System.out.println(obj);
         }
 
+        System.out.println("---------------------");
+        System.out.println(list.get(1));
+
+
+        System.out.println("---------------------");
         Iterator iterator = list.iterator();
         while (iterator.hasNext()){
             System.out.println(iterator.next());

@@ -41,8 +41,8 @@ public class MyArrayList implements Iterable{
             System.out.println("没有这个元素");
             return;
         }
-        for (int i = 1; i < total-index; i++) {
-            all[index] = all[index+i];
+        for (int i = index; i < total; i++) {
+            all[i] = all[i+1];
         }
         all[total] = null;
     }
