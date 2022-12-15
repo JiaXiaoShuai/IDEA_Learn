@@ -22,4 +22,9 @@ public class Goose extends Animal {
     public void eat() {
         super.eat();
     }*/
+
+    public static void main(String[] args) {
+        Goose goose = new Goose(1,"jia",23);
+        Animal animal =new Goose(2,"cong",22);
+    }
 }
