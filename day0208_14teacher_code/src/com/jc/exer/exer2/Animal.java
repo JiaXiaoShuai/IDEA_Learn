@@ -1,5 +1,7 @@
 package com.jc.exer.exer2;
 
+import org.junit.Test;
+
 public class Animal implements LiveAble{
     @Override
     public void eat() {
@@ -15,4 +17,5 @@ public class Animal implements LiveAble{
     public void sleep() {
         System.out.println("躺下闭上眼睛睡觉");
     }
+
 }
