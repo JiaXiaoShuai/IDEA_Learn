@@ -1,5 +1,7 @@
 package com.jc.review;
 
+import org.junit.Test;
+
 /*
 需求：
     员工对象要比较大小，默认按照员工编号比较大小。==>员工类本身会实现java.lang.Comparable接口
@@ -71,5 +73,10 @@ public class Employee implements Comparable{
         this.id - ((Employee)o).id  结果是负整数，说明this.id < o.id
         this.id - ((Employee)o).id  结果是0，说明this.id = o.id
          */
+    }
+
+    @Test
+    public void test(){
+        System.out.println("hello world");
     }
 }
