@@ -10,8 +10,12 @@ public class TestThrow {
         try {
             System.out.println(max());
         } catch (IllegalArgumentException e) {
+            e.printStackTrace();
             System.out.println(e.getMessage());
+//            System.out.println("至少数");
         }
+
+        System.out.println("1111");
 
     }
 
