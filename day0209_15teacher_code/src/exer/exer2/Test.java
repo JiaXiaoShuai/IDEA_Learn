@@ -17,7 +17,7 @@ public class Test {
             System.out.println(i);
         }
 
-        int[] arr = {1,5,16,28,39};
+        int[] arr = {1,5,16,28,39,55};
 
         try {
             System.out.println(ArrayTools.toString(arr));
@@ -26,5 +26,8 @@ public class Test {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        int q = 3/2;
+        System.out.println(q);
     }
 }
