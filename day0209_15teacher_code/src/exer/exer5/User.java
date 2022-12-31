@@ -3,7 +3,7 @@ package exer.exer5;
 public class User {
     private String username;
     private String password;
-    private static int objectIndex = 1;
+
     public User() {
     }
 
@@ -30,6 +30,7 @@ public class User {
 
     @Override
     public String toString() {
+        int objectIndex = 1;
         return "User"+(objectIndex++)+"{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +

@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
-
         while(true) {
             int index = 0;
             System.out.println("-----------尚硅谷----------");
@@ -26,7 +25,12 @@ public class Test {
                         /*System.out.println();*/
                         System.out.print("密码：");
                         String password = sc.next();
-                        Tools.register(username, password);
+                        try {
+                            new UserManager().checkUsernameExits(username);
+                            Tools.register(username, password);
+                        }catch (UsernameAlreadyExistsException e){
+                            System.out.println(e.getMessage());
+                        }
                         break;
                     case 2:
                         System.out.print("用户名：");
