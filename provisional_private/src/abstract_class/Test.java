@@ -1,9 +1,9 @@
-package exer.exer5;
+package abstract_class;
 
 /**
- * 包装类的一些使用方法和注意事项
+ * 抽象类的常用方法和注意事项
  */
-public class Test1 {
+public class Test {
     public static void main(String[] args) {
         int a = Integer.parseInt("54664");
         System.out.println(a);
@@ -64,7 +64,7 @@ public class Test1 {
         change(q,w,e);
         System.out.println(q+"\t"+w+"\t"+e.radius);//包装类虽是对象，但是在方法的传递机制上是“不可变”对象，即一旦修改就是新对象，和实参无关
     }
-    public static void change(int a,Integer b,Cricle c){
+    public static void change(int a, Integer b, Cricle c){
         a +=10;
         b +=10;
         c.radius +=10;
@@ -73,4 +73,3 @@ public class Test1 {
 class Cricle{
     double radius;
 }
-
