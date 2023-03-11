@@ -1,4 +1,4 @@
-package interface_test;
+package interface_test.test1;
 
 public interface TestInterface extends InterfaceTest,B,C{
     @Override

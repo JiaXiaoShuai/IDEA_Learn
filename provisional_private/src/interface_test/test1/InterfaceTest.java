@@ -1,4 +1,4 @@
-package interface_test;
+package interface_test.test1;
 
 /**
  * 接口的使用方法和注意事项

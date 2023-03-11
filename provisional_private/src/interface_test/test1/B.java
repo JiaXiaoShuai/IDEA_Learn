@@ -1,6 +1,6 @@
-package interface_test;
+package interface_test.test1;
 
-public interface C {
+public interface B {
     public default int upper(int a){
         return a;
     }

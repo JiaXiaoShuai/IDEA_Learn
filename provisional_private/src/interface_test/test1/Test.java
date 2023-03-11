@@ -1,4 +1,4 @@
-package interface_test;
+package interface_test.test1;
 
 public class Test extends A implements InterfaceTest{
 
