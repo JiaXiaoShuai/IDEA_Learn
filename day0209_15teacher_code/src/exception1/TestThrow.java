@@ -1,4 +1,4 @@
-package exception;
+package exception1;
 
 /*
  throws是加在方法()后面的。

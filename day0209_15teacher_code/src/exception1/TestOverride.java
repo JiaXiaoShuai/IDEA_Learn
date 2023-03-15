@@ -1,4 +1,4 @@
-package exception;
+package exception1;
 /*
 如果方法签名中有throws，对于方法重写有什么影响？
   （1）如果父类或父类接口被重写方法，没有throws“编译时异常“，重写方法时，就不能throws编译时异常，但可以throws运行时异常

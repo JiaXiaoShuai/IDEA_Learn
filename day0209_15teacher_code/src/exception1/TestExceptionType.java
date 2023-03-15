@@ -1,6 +1,4 @@
-package exception;
-
-import java.io.FileNotFoundException;
+package exception1;
 
 /*
 1.异常类型的根：java.langThrowable

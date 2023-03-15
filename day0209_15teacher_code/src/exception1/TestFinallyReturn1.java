@@ -1,4 +1,4 @@
-package exception;
+package exception1;
 
 public class TestFinallyReturn1 {
     public static void main(String[] args) {

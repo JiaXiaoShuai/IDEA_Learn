@@ -1,4 +1,4 @@
-package exception;
+package exception1;
 /*
 1.语法格式
 try{

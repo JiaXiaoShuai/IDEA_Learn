@@ -1,4 +1,4 @@
-package exception;
+package exception1;
 /*
 异常的信息包括
 （1）异常的类型

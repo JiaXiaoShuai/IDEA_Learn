@@ -1,4 +1,4 @@
-package exception;
+package exception1;
 
 public class ArrayTools {
     // 对给定的数组通过给定的角标获取元素。
