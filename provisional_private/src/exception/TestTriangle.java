@@ -22,6 +22,8 @@ public class TestTriangle {
             e.printStackTrace();
         }
 
+        /*t = new Triangle(0,0,1);*///会发生编译时异常
+
         System.out.println("能打印出来吗");
     }
 }
