@@ -26,7 +26,7 @@ public class ThreadMethod1 {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                System.out.println();
+                System.out.println(Thread.currentThread().getName());
             }
         }
 
@@ -35,7 +35,7 @@ public class ThreadMethod1 {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                System.out.println(getName());
+                System.out.println(Thread.currentThread().getName());
             }
         },"线程6").start();
     }
