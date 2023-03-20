@@ -39,4 +39,12 @@ public class TestRuntimeException {
         int num = input.nextInt();
         input.close();
     }
+
+    @Test
+    public void test05(){
+        int a = 1;
+        int b = 0;
+        //ArithmeticException
+        System.out.println(a/b);
+    }
 }
