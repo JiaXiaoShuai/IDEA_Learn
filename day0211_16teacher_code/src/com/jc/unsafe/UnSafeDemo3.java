@@ -1,4 +1,4 @@
-package com.jc.exer.unsafe;
+package com.jc.unsafe;
 
 public class UnSafeDemo3 {
     public static void main(String[] args) {

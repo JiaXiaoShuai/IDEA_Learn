@@ -1,4 +1,4 @@
-package com.jc.exer.unsafe;
+package com.jc.unsafe;
 
 /**
  * 局部变量是不能共享的

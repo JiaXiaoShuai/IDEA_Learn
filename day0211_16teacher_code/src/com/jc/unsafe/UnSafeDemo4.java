@@ -1,4 +1,4 @@
-package com.jc.exer.unsafe;
+package com.jc.unsafe;
 
 /*
 静态变量也可以被多个线程共享

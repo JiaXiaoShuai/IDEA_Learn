@@ -1,4 +1,4 @@
-package com.jc.exer.unsafe;
+package com.jc.unsafe;
 /*
 实例变量，不是所有对象共享的，而是每一个对象独立的。
  */
