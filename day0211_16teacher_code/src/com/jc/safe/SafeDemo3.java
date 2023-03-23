@@ -26,7 +26,7 @@ public class SafeDemo3 {
 }
 
 class TicketRunnable implements Runnable{
-    private int i = 10;
+    private static int i = 10;
 
     @Override
     public void run() {
@@ -38,7 +38,7 @@ class TicketRunnable implements Runnable{
     //卖一张票，比喻生活中，上一次卫生间
     //非静态方法的锁对象是this，调用这个方法的对象
     //当前线程对象调用这个方法
-    public synchronized void saleOneTicket(){
+    public static synchronized void saleOneTicket(){
         if(i>=1){
             try {
                 Thread.sleep(10);//这里加入休眠是为了让问题暴露的明显问题
