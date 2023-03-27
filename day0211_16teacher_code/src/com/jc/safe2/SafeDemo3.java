@@ -23,7 +23,8 @@ class TicketRunnable implements Runnable{
     @Override
     public void run() {
         while(i > 1){
-            synchronized (lock)
+            synchronized (TicketRunnable.class)
+            /*synchronized (lock)*/
             /*synchronized (this)*/ {
                 if(i >= 1){
                     try {
