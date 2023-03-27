@@ -34,10 +34,9 @@ import org.junit.Test;
  * 当工作台上是空的，他女朋友就休息一下，等到小肖做好菜在叫她。
  */
 public class TestCommunicate {
-
-    /*@Test
+    Workbench w = new Workbench();
+    @Test
     public void test01(){
-        Workbench w = new Workbench();
         //小肖做饭线程
         new Thread("小肖"){
             @Override
@@ -49,7 +48,7 @@ public class TestCommunicate {
         }.start();
 
         //女朋友取饭线程
-        new Thread("女朋友"){
+       new Thread("女朋友"){
             @Override
             public void run() {
                 while(true){
@@ -57,7 +56,9 @@ public class TestCommunicate {
                 }
             }
         }.start();
-    }*/
+
+
+    }
 
     public static void main(String[] args) {
         Workbench w = new Workbench();
