@@ -9,6 +9,15 @@ public class TestSystem {
     public void test01(){
         long timeMillis = System.currentTimeMillis();
         System.out.println(timeMillis);
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        long tm = System.currentTimeMillis();
+        System.out.println(tm);
     }
 
     @Test
@@ -56,6 +65,20 @@ public class TestSystem {
         }finally {
             System.out.println("finally");
         }
+    }
+
+    public static void main(String[] args) {
+        long timeMillis = System.currentTimeMillis();
+        System.out.println(timeMillis);
+
+        /*try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+
+        long tm = System.currentTimeMillis();
+        System.out.println(tm);
     }
 }
 
