@@ -2,6 +2,11 @@ package com.jc.array;
 
 import org.junit.Test;
 
+import java.text.AttributedCharacterIterator;
+import java.text.Collator;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -76,10 +81,25 @@ import java.util.Scanner;
  *     }
  * }
  *
+ * 数组工具类java.util.Arrays:
+ * public static int binarySearch(int[] a,int key):如果key在数组中，则返回对应下标，否则返回（-（插入点）-1）。
+ *      插入点 被定义为讲key插入数组的那一点
+ * public static void sort(int[] a):排序，从小到大，底层不是冒泡排序，是优化过的快速排序。
+ * public static void sort(Object[] a):要求元素实现自然排序接口java.lang.Comparable接口
+ * public static void sort(Object[] a,Comparator c):在排序过程中使用定制排序规则
+ * public static String toString(int[] a):把元素拼接结果转为字符串返回
+ *
+ * public static String toString(Object[] a):把元素拼接结果转为字符串返回，对象会在拼接过程中自动调用对象的toString
+ *
+ * public static int[] copyOf(int[] original,int newLength)：复制一个新数组，长度为newLength
+ * public static int[] copyOfRange(int[] original,int from,int to)：复制original的[from, to)
+ * public static boolean equals(int[] a, int[] a2) ：比较两个数组的长度、元素是否完全相同
+ * public static void fill(int[] a,int val)：给数组填充元素
+ *
  */
 public class TestArray {
     @Test
-    public void Test01(){
+    public void TestC(){
         System.out.println("Hello,World");
         Scanner sc = new Scanner(System.in);
         int i = sc.nextInt();
@@ -120,4 +140,139 @@ public class TestArray {
             }
         }
     }
+
+    @Test
+    public void Test01(){
+        int[] arr = {4,6,8,9,12};
+        int target = 5;
+        System.out.println(Arrays.binarySearch(arr, target));//-2不存在
+
+        target = 15;
+        System.out.println(Arrays.binarySearch(arr, target));//-6不存在
+    }
+
+    @Test
+    public void Test02(){
+        int[] arr = {4,6,8,9,12};
+        int target = 9;
+        System.out.println(Arrays.binarySearch(arr, target));//3 存在
+    }
+
+    @Test
+    public void Test03() {
+        Student[] arr = new Student[3];
+        arr[0] = new Student(2, "张三", 90);
+        arr[1] = new Student(1, "李四", 45);
+        arr[2] = new Student(5, "王五", 100);
+
+        Arrays.sort(arr, new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                Student s1 = (Student) o1;
+                Student s2 = (Student) o2;
+                return s2.getScore() - s1.getScore();
+            }
+        });
+
+        System.out.println(Arrays.toString(arr));
+
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    @Test
+    public void test05(){
+        Student[] arr = new Student[3];
+        arr[0] = new Student(2,"Jack",90);
+        arr[1] = new Student(1,"Bob",45);
+        arr[2] = new Student(5,"Tom",100);
+
+        Arrays.sort(arr, new Comparator(){
+
+            @Override
+            public int compare(Object o1, Object o2) {
+                Student s1 = (Student) o1;
+                Student s2 = (Student) o2;
+                //比较两个学生的姓名，name是String类型
+//                return s1.getName() - s2.getName();//错误，字符串不支持减法
+//                if(s1.getName() > s2.getName()){//错误，字符串不支持直接比较大小，因为是对象
+////                    //...
+////                }
+                //String类实现了java.lang.Comparable接口
+                return s1.getName().compareTo(s2.getName()); //String的自然排序是按照字符的Unicode编码值比较
+            }
+        });
+
+        System.out.println(Arrays.toString(arr));
+
+    }
+
+    @Test
+    public void Test06(){
+        Student[] arr = new Student[3];
+        arr[0] = new Student(2,"张三",90);
+        arr[1] = new Student(1,"李四",45);
+        arr[2] = new Student(5,"王五",100);
+
+        Arrays.sort(arr,new Comparator(){
+            @Override
+            public int compare(Object o1, Object o2) {
+                Student s1 = (Student) o1;
+                Student s2 = (Student) o2;
+                //Collator 类执行区分语言环境的String比较
+                Collator c = Collator.getInstance(Locale.CHINA);
+                return c.compare(s1.getName(),s2.getName());
+            }
+        });
+        System.out.println(Arrays.toString(arr));
+    }
+
+    @Test
+    public void Test07(){
+        int[] arr = {1,2,3,4,5};
+        int[] newArr1 = Arrays.copyOf(arr,3);
+        System.out.println(Arrays.toString(newArr1));//[1,2,3]
+
+        int[] newArr2 = Arrays.copyOf(arr,10);
+        System.out.println(Arrays.toString(newArr2));
+
+        int[] newArr3 = Arrays.copyOf(arr,0);
+        System.out.println(Arrays.toString(newArr3));
+
+        int[] arr1 = null;
+        System.out.println(arr1);
+        System.out.println(Arrays.toString(arr1));
+    }
+
+    @Test
+    public void Test08(){
+        int[] arr = {1,2,3,4,5};
+        int[] newArr1 = Arrays.copyOfRange(arr,2,4);
+        System.out.println(Arrays.toString(newArr1));//[3,4]
+
+        int[] newArr2 = Arrays.copyOfRange(arr,2,10);
+        System.out.println(Arrays.toString(newArr2));//[3,4,5,0,0,0,0,0]
+
+        int[] newArr3 = Arrays.copyOfRange(arr, 6,10);
+        System.out.println(Arrays.toString(newArr3));//ArrayIndexOutOfBoundsException
+
+    }
+
+    @Test
+    public void test09(){
+        int[] arr1 = {1,2,3,4,5};
+        int[] arr2 = {1,2,3,4,5,6};
+
+        System.out.println(Arrays.equals(arr1,arr2));//false
+    }
+
+    @Test
+    public void test10(){
+        int[] arr = new int[5];
+        arr[0] = 2;
+        //把所有元素填充为1
+        Arrays.fill(arr,1);
+        System.out.println(Arrays.toString(arr));
+    }
+
 }
