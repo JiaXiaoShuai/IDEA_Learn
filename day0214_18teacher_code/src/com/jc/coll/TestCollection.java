@@ -224,6 +224,7 @@ public class TestCollection {
     @Test
     public void Test07() {
         Collection coll = new ArrayList();
+        Collection other = new ArrayList();
         Father f1 = new Father("a",23);
         Father f2 = new Father("x",23);
         Father f3 = new Father("c",24);
@@ -238,12 +239,11 @@ public class TestCollection {
 //        coll.add(s3);
 
 
-       Collection other = new ArrayList();
         other.add(s1);
         other.add(s2);
 //        other.add(s3);
 
-        coll.add(other);
+        coll.addAll(other);
         System.out.println(coll);
 
         coll.remove(new Predicate() {
@@ -337,5 +337,8 @@ class Son extends Father {
 }
 
 class Student {
-
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
