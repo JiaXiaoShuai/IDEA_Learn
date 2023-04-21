@@ -42,7 +42,7 @@ public class TestIterator {
 
         System.out.println(coll.size());
         System.out.println(coll);
-        System.out.println(iterator.next());
+        /*System.out.println(iterator.next());*/
     }
 
     @Test
