@@ -66,6 +66,12 @@ import java.util.function.Predicate;
  * （3）boolean containsAll（Collection c）：判断c集合中的元素是否在当前集合中都存在。即c集合是否是当前结合的“子集”
  * （4）int size（）：获取当前集合中实际存储元素的个数
  * （5）Object【】 toArray（）：返回包含当前集合中所有元素的数组
+ *
+ *
+ * 在removeIf方法中，传入了一个匿名内部类Predicate作为参数。Predicate是一个函数式接口，它有一个test方法用来对集合中的元素进行测试，如果测试结果为true，则将元素从集合中删除。
+ * 在这个例子中，test方法判断Person对象的年龄是否为24，如果是，则返回true，表示需要删除该元素。
+ * 需要注意的是，在匿名内部类Predicate中，需要指定泛型类型为Person，否则会出现编译错误。因为在集合中存储的是Person对象，所以需要指定Predicate的泛型类型为Person。
+ * 另外，在add方法中添加的是字符串而不是对象时，因为字符串是已知类型的，编译器可以自动推断出类型，所以不需要在匿名内部类Predicate中指定泛型类型。
  */
 public class TestCollection {
     @Test
@@ -246,10 +252,10 @@ public class TestCollection {
         coll.addAll(other);
         System.out.println(coll);
 
-        coll.remove(new Predicate() {
+        coll.removeIf(new Predicate<Father>() {
             @Override
-            public boolean test(Object o) {
-                return ((Father)o).age == 23;
+            public boolean test(Father father) {
+                return father.age == 23;
             }
         });
 
