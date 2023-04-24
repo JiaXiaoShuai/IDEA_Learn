@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 public class TestReview {
@@ -28,7 +29,35 @@ public class TestReview {
 
         System.out.println(s.indexOf('i'));
         System.out.println(s.lastIndexOf("i"));
+        System.out.println(s.substring(3));
+        System.out.println(s1.substring(2));
+        System.out.println(s);
+        System.out.println(s1);
     }
 
+    @Test
+    public void test03(){
+        String s = "iwioaina";
+        char a = 's';
+        System.out.println(s);
+        System.out.println(a);
+        System.out.println(s.charAt(1));
+        char[] ar = s.toCharArray();
+        System.out.println(Arrays.toString(ar));
+    }
 
+    @Test
+    public void test04(){
+        char[] arr = {'h','e','l','l','o'};
+        System.out.println(new String(arr));
+        System.out.println(new String(arr,1,2));
+        String a1 = String.copyValueOf(arr);
+        String a2 = new String(arr);
+        System.out.println(a1 == a2);//false
+
+        a1 = String.copyValueOf(arr,3,1);
+        System.out.println(a1);
+
+        a1 = String.valueOf(arr);
+    }
 }
