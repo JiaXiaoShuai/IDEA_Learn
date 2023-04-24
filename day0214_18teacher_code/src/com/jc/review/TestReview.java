@@ -18,4 +18,17 @@ public class TestReview {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void test02(){
+        String s = "iwioaina";
+        String s1 = new String("woaini");
+
+        System.out.println(s==s1);
+
+        System.out.println(s.indexOf('i'));
+        System.out.println(s.lastIndexOf("i"));
+    }
+
+
 }

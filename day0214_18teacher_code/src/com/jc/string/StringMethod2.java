@@ -6,7 +6,7 @@ import org.junit.Test;
  * 字符串的查找相关，系列2
  * (11)boolean contains(XX):
  * (12)int indexOf(XX):从前往后找当前字符串中XX，即如果返回第一次出现的下标，要是没有返回-1
- * (13)int lastIndexOf(xx):从后往前找当前字符中XX，即如果有返回最后一次出现的下标，要是没有就返回-1
+ * (13)int lastIndexOf(xx):从后往前找当前字符中XX，即如果有返回最先出现的下标，要是没有就返回-1
  */
 public class StringMethod2 {
     @Test
