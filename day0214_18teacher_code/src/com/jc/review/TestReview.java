@@ -2,6 +2,7 @@ package com.jc.review;
 
 import org.junit.Test;
 
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -60,4 +61,23 @@ public class TestReview {
 
         a1 = String.valueOf(arr);
     }
+
+    @Test
+    public void test05()throws UnsupportedEncodingException {
+        String s = "woaini";
+        System.out.println(Arrays.toString(s.getBytes()));//[119, 111]
+        String s1 = "你是谁";
+        System.out.println(Arrays.toString(s1.getBytes()));
+        System.out.println(Arrays.toString(s1.getBytes("GBK")));
+        byte[] bytes = s1.getBytes();
+        byte[] bytes1 = s1.getBytes("GBK");
+        System.out.println(new String(bytes));
+        System.out.println(new String(bytes, 0, 9));
+        System.out.println("==================分隔符================");
+
+        System.out.println(new String(bytes1));
+        System.out.println(new String(bytes1, 0, 4));
+    }
+
+
 }
