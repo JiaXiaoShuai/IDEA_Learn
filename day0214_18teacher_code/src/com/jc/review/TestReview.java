@@ -77,6 +77,12 @@ public class TestReview {
 
         System.out.println(new String(bytes1));
         System.out.println(new String(bytes1, 0, 4));
+
+        System.out.println(s.startsWith("wo"));
+        System.out.println(s.startsWith("ao"));
+
+        System.out.println(s.endsWith("wo"));
+        System.out.println(s.endsWith("ni"));
     }
 
 
