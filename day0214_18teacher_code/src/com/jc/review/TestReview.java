@@ -85,5 +85,4 @@ public class TestReview {
         System.out.println(s.endsWith("ni"));
     }
 
-
 }
