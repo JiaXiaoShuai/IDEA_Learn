@@ -4,7 +4,9 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Random;
+import java.util.function.Predicate;
 
 public class TestGenericClass {
     @Test
@@ -19,5 +21,21 @@ public class TestGenericClass {
              nums) {
             System.out.println(i);
         }
+
+        nums.removeIf(new Predicate<Integer>() {
+            @Override
+            public boolean test(Integer integer) {
+                 boolean index = (integer%2==0);
+                return index;
+            }
+        });
+
+        Iterator<Integer> iterator = nums.iterator();
+        while(iterator.hasNext()){
+            Integer num = iterator.next();
+            System.out.println("剩下：" + num);
+        }
+
+
     }
 }
