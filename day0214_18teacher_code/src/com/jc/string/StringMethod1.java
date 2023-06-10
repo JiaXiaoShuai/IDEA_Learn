@@ -61,4 +61,11 @@ public class StringMethod1 {
         newString = str.trim();
         System.out.println(str == newString);//false
     }
+
+    @Test
+    public void test07(){
+        String str = "hello";
+        String str1 = str.intern();
+        System.out.println(str1);
+    }
 }
