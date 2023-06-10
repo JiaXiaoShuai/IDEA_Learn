@@ -51,14 +51,14 @@ import java.util.function.Predicate;
  * （2）Collection接口的方法
  * A：添加
  * （1）add(Object obj):添加元素对象到当前集合中
- * （2）addAll(Collection other):添加other集合中多有元素对象到当前集合中，即this=this ∪ other
+ * （2）addAll(Collection other):添加other集合中多出的元素对象到当前集合中，即this=this ∪ other
  * B：删除
  * （1）boolean remove（Object obj）：从当前集合中删除第一个找到的与obj对象equals返回true的元素
  * （2）boolean removeAll（Collection coll）：从当前集合中删除所有与coll集合中相同的元素
  * 即this = this - this  n  coll（减去交集）
  * （3）boolean removeOf（Predicate filter）：删除满足给定条件的刺激和的所有元素,切记此方法的集合中的元素必须是相同类型的
  * （4）boolean retainAll（Collection coll）：从当前集合中删除两个集合中不同的元素，使得当前集合进保留与c集合中的元素相同的元素
- * 即当前结合中仅保留两个集合的交集，即this = this  n  coll；
+ * 即当前集合中仅保留两个集合的交集，即this = this  n  coll；
  * （5）clear（）：清空集合
  * C：查询
  * （1）boolean isEmpty（）：判断当前集合是否为空集合
