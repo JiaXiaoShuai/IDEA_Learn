@@ -1,3 +1,4 @@
 1.Collection<> coll = new ArrayList<>();//中前后的尖括号内的类型必须同步，后面可以没有<>号（自动识别）；
 2.接口可以多继承，但是类不行
 3.基本数据类型可以自动装箱，但是无法跨越装箱比如：int——————>Double这种是错误的
+4.Collator.getInstance(Locale.CHINA)<==>Collator类型变量，用来中文排序
