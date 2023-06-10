@@ -2,7 +2,7 @@ package test_thread;
 
 /**
  * run()方法和main（）方法同时修改同一个变量会如何？
- * 最后的得到的结果为：main（）修改
+ *
  * 但是如果多个run（）方法修改一个变量，取得是第一个？
  */
 public class ThreadMethod1 {
@@ -40,6 +40,9 @@ public class ThreadMethod1 {
 
         ThreadMethod1.method();
         System.out.println("最终结果："+ ThreadMethod1.i);
+
+        Thread.sleep(5000);
+        System.out.println("zuizuzi最终结果："+ ThreadMethod1.i);
     }
 }
 
