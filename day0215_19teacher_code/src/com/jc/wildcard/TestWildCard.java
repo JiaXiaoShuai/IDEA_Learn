@@ -34,7 +34,54 @@ public class TestWildCard {
         m1(new ArrayList<>());//可以，这个和上面的那个是一个意思
         m1(new ArrayList());//编译会有警告，泛型擦除，泛型未指定
         /*
-        形参
+        形参  Collection<Object>  c
+        实参  new ArrayList<String>()
+        实参是给形参赋值的
+        等价于 Collection<Object>  c = new ArrayList<String>();
          */
+        Object obj = new String();//多态引用，可以
+//        ArrayList<Object> list = new ArrayList<String>();//错误，不是多态
+    }
+
+    public void m2(Collection c){//没有类型检查，有警告
+        for(Object o : c){
+            System.out.println(o);
+        }
+    }
+
+    @Test
+    public void test02(){
+        m2(new ArrayList<Object>());
+        m2(new ArrayList<>());
+        m2(new ArrayList());
+        m2(new ArrayList<String>());
+    }
+
+    public <T> void m3(Collection<T> c){
+        for(T t: c){
+            System.out.println(t);
+        }
+    }
+
+    @Test
+    public void test03(){
+        m3(new ArrayList<Object>());
+        m3(new ArrayList<>());
+        m3(new ArrayList());
+        m3(new ArrayList<String>());
+    }
+
+    public void m4(Collection<?> c){
+        for (Object t : c) {
+            System.out.println(t);
+        }
+    }
+
+    @Test
+    public void test04(){
+        m3(new ArrayList<Object>());
+        m3(new ArrayList<>());
+        m3(new ArrayList());//有警告
+        m3(new ArrayList<String>());
     }
 }
