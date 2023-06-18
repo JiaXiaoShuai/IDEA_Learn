@@ -56,6 +56,4 @@ public class DemoTest {
 //        demo05.method(new Object());//错误
 //        demo05.method(new Integer(1));//错误
     }
-
-
 }
