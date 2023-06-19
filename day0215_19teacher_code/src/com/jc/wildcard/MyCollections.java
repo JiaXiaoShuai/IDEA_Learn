@@ -2,8 +2,10 @@ package com.jc.wildcard;
 
 import org.junit.Test;
 
+
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 /*
 案例：
@@ -148,5 +150,60 @@ public class MyCollections {
         src2.add(2.0);
         copyGather(src2,dest);
         System.out.println(dest);
+    }
+
+    /*public static <T> void method1(Collection<? extends T> c1 , T... args){
+        Collection coll = new ArrayList();
+        for (T t : args){
+            coll.add(t);
+        }
+        Iterator itertor = coll.iterator();
+
+        while(itertor.hasNext()){
+            T t = (T) itertor.next();
+            c1.add(t);
+        }
+    }*/
+
+   /* @Test
+    public void test06(){
+        Collection<Integer> coll = new ArrayList<Integer>();
+        method1(coll,"wo","shi");
+        System.out.println(coll);
+    }*/
+
+    @Test
+    public void test07(){
+        Collection<Number> coll = new ArrayList<Number>();
+        Integer number = new Integer(12);
+        coll.add(number);
+    }
+
+    /*public static <T> void method1(Collection<? extends T> c1 , T... args){
+
+        for (T t : args){
+            c1.add(t);
+        }
+        Iterator itertor = coll.iterator();
+
+
+    }*/
+    /*public static void main(String[] args) {
+        Collection<Integer> coll = new ArrayList<Integer>();
+        method1(coll,"wo","shi");
+        System.out.println(coll);
+    }*/
+
+    public static <T> void method1(Collection<? super T> c1 , T... args){
+        for (T t : args){
+            c1.add(t);
+        }
+    }
+
+    @Test
+    public void test08(){
+        Collection<Number> coll = new ArrayList<>();
+        method1(coll,1,2,3);
+        System.out.println(coll);
     }
 }
