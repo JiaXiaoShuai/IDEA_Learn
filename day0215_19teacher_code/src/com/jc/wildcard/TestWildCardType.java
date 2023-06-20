@@ -14,4 +14,7 @@ package com.jc.wildcard;
 - public static <T> void copy(Collection<? super T> dest,Collection<? extends T> src)：可以将一个Collection集合的元素复制到另一个Collection集合中，此时要求原Collection泛型的类型<=目标Collection的泛型类型。
  */
 public class TestWildCardType {
+    public static void main(String[] args) {
+        System.out.println("woaini");
+    }
 }
