@@ -8,7 +8,7 @@ public class TestMyArrays {
             System.out.println(((String)object).length());
         }*/
 
-        String[] newArr = MyArrays.copyOf(strings, 5);
+        String[] newArr = MyArrays.copyOf(strings, 57);
         for (String s : newArr) {
             System.out.println(s);
         }
