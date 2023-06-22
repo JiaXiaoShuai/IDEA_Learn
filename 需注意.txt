@@ -5,3 +5,4 @@
 5.类的静态和成员方法的调用，要看对象运行时所属的类型。避免出现报错等。
 6.int a = Collator.getInstance(Locale.CHINA).compare(o1.getName(),o2.getName());按照中文比较
 7.对于泛型通配符中的上下限问题需要严格注意，因为很有可能导致集合里的元素无法添加
+8.List集合接口中，需要注意add也可以添加集合
