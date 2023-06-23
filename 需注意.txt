@@ -8,3 +8,5 @@
 8.List集合接口中，需要注意add也可以添加集合
 9.List集合接口中，如果remove（）方法中删除的是Integer类型，切记区分出来形参是索引还是数字
 10.当用Iterator遍历集合时，如果添加或修改了某元素，则不能用在遍历中打印
+11.当用ListIterator遍历集合时，如果一起用到了next()和nextIndex()方法，那么要注意方法中的cursor（光标），因为这个cursor是被这两个方法共用的
+    next()方法的调用会使cursor加1。

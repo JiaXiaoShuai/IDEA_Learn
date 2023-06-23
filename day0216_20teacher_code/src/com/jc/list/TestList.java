@@ -191,8 +191,10 @@ public class TestList {
         ListIterator listIterator = list.listIterator();
 
         while (listIterator.hasNext()){
-            Object next = listIterator.next();
-            System.out.println(listIterator.nextIndex()+":"+next);
+//            Object next = listIterator.next();
+//            System.out.println(listIterator.nextIndex()+":"+listIterator.next());
+            listIterator.next();
+            listIterator.nextIndex();
         }
 
         System.out.println("==============================================");
