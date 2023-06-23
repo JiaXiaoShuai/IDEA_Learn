@@ -334,7 +334,7 @@ public class TestList {
         List list01 = new ArrayList<>();
         list01.add("张三");
         list01.add("李四");
-        list01.add("王五");
+        list01.add("五");
 
         List list02 = Arrays.asList("张二麻子");
         list01.addAll(list02);
