@@ -1,0 +1,41 @@
+/**
+ * 2.List集合
+ * （1）List特点：
+ * 有序，可以重复、线性、可以根据索引操作元素
+ * <p>
+ * （2）
+ * List接口的方法
+ * java.util.List<E>,注意不要导错包了（java.awt.List这个类是界面下拉框用的）
+ * List接口是Collection的子接口，所以Collection接口的所有方法，他都有
+ * 我们下面主要介绍他新增的方法，比Collection接口多的方法
+ * a：添加
+ * void add(int index,E ele)
+ * boolean addAll(int index,Collection<? extends E> eles)
+ * b：删除
+ * E remove（int index）：指定位置元素删除
+ * c：修改
+ * E set（int index，E ele）：
+ * d:查询
+ * E get(int index):获取指定位置的元素
+ * int indexOf(Object o):查询o对象在当前List集合的位置，如果有重复的多个相同的元素，只返回第1个
+ * int lastIndexOf(Object o):查询o对象在当前List集合的位置，如果有重复的多个相同的元素，只返回最后一个
+ * List<E> subList(int fromIndex, int toIndex):截取一段[fromIndex,toIndex)
+ * e:遍历
+ * ListIterator<E> listIterator()
+ * ListIterator<E> listIterator(int index)
+ * <p>
+ * Iterator<E> 接口：
+ * boolean hasNext()
+ * E next():
+ * void remove();
+ * <p>
+ * ListIterator<E>是Iterator<E>的子接口。比Iterator功能强大
+ * 可以支持，从任意位置开始从前往后遍历，也支持从后往前遍历
+ * boolean hasPrevious()
+ * E previous()：在遍历的过程中，可以显示下标的信息
+ * int nextIndex():
+ * int previousIndex()
+ * 还可以在遍历的过程中添加和修改元素
+ * void add（E e）
+ * void add（E  e）
+ */
