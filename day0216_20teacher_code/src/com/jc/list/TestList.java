@@ -317,7 +317,7 @@ public class TestList {
     }
 
     @Test
-    public void test02() {
+    public void test02(){
         List<String> list = new ArrayList<>();
         list.add("hello");
         list.add("java");
