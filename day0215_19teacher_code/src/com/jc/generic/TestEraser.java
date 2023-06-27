@@ -17,6 +17,7 @@ public class TestEraser {
     public void test01(){
         Collection coll = new ArrayList();
         coll.add("hello");
+        coll.add(32);
         //这里就发生了泛型擦除
     }
 
