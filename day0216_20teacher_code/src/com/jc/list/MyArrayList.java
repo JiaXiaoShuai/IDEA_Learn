@@ -24,7 +24,7 @@ public class MyArrayList<E> /*extends TestList*/{
         //考虑数组是否已满，需要扩容
         grow();
         all[total++] = e;
-        log.println();
+//        log.println();
     }
 
     /**
