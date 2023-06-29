@@ -186,9 +186,10 @@ public class MyArrayList<E> /*extends TestList*/ implements Iterable<E>{
     public void remove(int index) {
         checked(index);
         System.arraycopy(all, index + 1, all, index, total - index - 1);
-        Object[] allNew = new Object[total - 1];
-        System.arraycopy(all, 0, allNew, 0, total - 1);
-        all = allNew;
+        /*Object[] allNew = new Object[total - 1];*/
+        /*System.arraycopy(all, 0, allNew, 0, total - 1);*/
+        /*all = allNew;*/
+        all = Arrays.copyOf(all, total - 1);//是上面三步的优化
         total--;
     }
 

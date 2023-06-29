@@ -2,9 +2,21 @@ package com.jc.list;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class TestMyArrayList {
+
+    @Test
+    public void test08(){
+        MyArrayList<String> list = new MyArrayList<>();
+        list.add("jia");
+        list.add("aii");
+        list.add("ai");
+
+        list.remove(2);
+        System.out.println(Arrays.toString(list.toArray()));
+    }
 
     @Test
     public void test07(){
