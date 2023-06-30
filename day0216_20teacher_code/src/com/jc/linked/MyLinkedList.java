@@ -120,6 +120,15 @@ public class MyLinkedList<E> implements Iterable<E> {
         }
     }
 
+    /*
+    hasNext() 判断当前位置有没有元素
+	其实应该是currentIsPresent()   current：当前位置，present：存在
+next() 取出当前位置的元素，并把引用/下标指向下一个元素
+	  其实应该是fetchAndMoveNext()   fetch：获取，moveNext：移到下一个
+     */
+
+
+    //双链表的结点类型
     public class Node {
         Node previous;
         E data;

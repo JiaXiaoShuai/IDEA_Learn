@@ -1,6 +1,6 @@
 package com.jc.exer2;
 
-import static com.atguigu.exer2.Data.*;
+import static com.jc.exer2.Data.*;
 
 /*
 （6）在测试类中创建员工数组，用Data类中的二维数组进行初始化，遍历数组
