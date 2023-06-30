@@ -1,27 +1,29 @@
 package com.jc.linked;
 
+import java.util.Iterator;
+
 /**
  * 链式结构
  * （1）先要有结点，双链表的特点：
  * class Node{
- *     Node previous;
- *     E data;
- *     Node next;
+ * Node previous;
+ * E data;
+ * Node next;
  * }
- *
+ * <p>
  * (2)对于双链表来说：可以从前往后查找元素，也可以从后往前
  * 双链表最后记录一下：第一结点的地址和最后一个结点的地址
  */
-public class MyLinkedList<E> {
+public class MyLinkedList<E> implements Iterable<E> {
     private Node first;//第一个结点的位置
     private Node last;//最后一个结点的位置
     private int total;
 
-    public void add(E e){
+    public void add(E e) {
         /*
-        * 第一步：先创建新结点
-        * */
-        Node newNode = new Node(last,e,null);
+         * 第一步：先创建新结点
+         * */
+        Node newNode = new Node(last, e, null);
         /*
         新结点的previous = last；（这里last是指没有添加当前新结点之前）
         如果是第一次添加，那么last是null
@@ -32,9 +34,9 @@ public class MyLinkedList<E> {
         第二步：让上一个结点的next指向的新结点
          */
 
-        if (last != null){
+        if (last != null) {
             last.next = newNode;
-        }else {
+        } else {
             first = newNode;
         }
         /*
@@ -46,53 +48,79 @@ public class MyLinkedList<E> {
         total++;
     }
 
-    public int size(){
+    public int size() {
         return total;
     }
 
-    public void remove(E e){
+    public void remove(E e) {
         /*
         1.找到目标结点
          */
         Node node = findNode(e);
-        if(node != null){
-            if(node.previous == null){//说明被删除的是第一个结点
+        if (node != null) {
+            if (node.previous == null) {//说明被删除的是第一个结点
                 first = node.next;
+            } else {
+                node.previous.next = node.next;
             }
 
-            if(node.next == node){
-                node.previous.next = node.previous;
+            if (node.next == null) {
+                last = node.previous;
+            } else {
+                node.next.previous = node.previous;
             }
 
-            node.previous.next = node.next;
-        }else {
-            System.out.println("没有该节点，无法删除");
+
         }
+        node.previous = null;
+        node.data = null;
+        node.next = null;
         total--;
     }
 
-    public Node findNode(E e){
-        if(e == null){
+    public Node findNode(E e) {
+        if (e == null) {
             Node node = first;
-            while(node!=null){
-                if(node.data == null){
+            while (node != null) {
+                if (node.data == null) {
                     return node;
                 }
                 node = node.next;
             }
-        }else {
+        } else {
             Node node = first;
-            while(node.data != null){
-                if(e.equals(node.data)){
+            while (node.data != null) {
+                if (e.equals(node.data)) {
                     return node;
                 }
+                node = node.next;
             }
-            node = node.next;
         }
         return null;
     }
 
-    private class Node{
+    @Override
+    public Iterator<E> iterator() {
+        return new Itr();
+    }
+
+    private class Itr implements Iterator<E> {
+        Node node = first;
+
+        @Override
+        public boolean hasNext() {
+            return node != null;
+        }
+
+        @Override
+        public E next() {
+            E value = node.data;
+            node = node.next;
+            return value;
+        }
+    }
+
+    public class Node {
         Node previous;
         E data;
         Node next;
@@ -102,5 +130,41 @@ public class MyLinkedList<E> {
             this.data = data;
             this.next = next;
         }
+
+        /*public Node getPrevious() {
+            return previous;
+        }
+
+        public void setPrevious(Node previous) {
+            this.previous = previous;
+        }
+
+        public E getData() {
+            return data;
+        }
+
+        public void setData(E data) {
+            this.data = data;
+        }
+
+        public Node getNext() {
+            return next;
+        }
+
+        public void setNext(Node next) {
+            this.next = next;
+        }
+    }*/
+
+   /* @Override
+    public String toString() {
+        return "MyLinkedList{" +
+                "first=" + first +
+                ", last=" + last +
+                ", total=" + total +
+                ", data=" +
+                '}';
+    }*/
     }
+
 }
