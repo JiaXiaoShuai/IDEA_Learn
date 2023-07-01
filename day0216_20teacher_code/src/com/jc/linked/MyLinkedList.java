@@ -1,6 +1,7 @@
 package com.jc.linked;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 
 /**
  * 链式结构
@@ -176,4 +177,12 @@ next() 取出当前位置的元素，并把引用/下标指向下一个元素
     }*/
     }
 
+
+    public Object[] toArray() {
+        Object[] result = new Object[total];
+        int i = 0;
+        for (Node x = first; x != null; x = x.next)
+            result[i++] = x.data;
+        return result;
+    }
 }
