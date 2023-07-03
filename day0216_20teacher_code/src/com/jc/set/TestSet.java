@@ -23,10 +23,31 @@ import java.util.TreeSet;
  * Set的实现类有：HashSet，TreeSet，LinkedHashSet
  */
 public class TestSet {
+    @Test
+    public void test07(){
+        TreeSet<Student> set = new TreeSet<>(new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                return o1.getId() - o2.getId();
+            }
+        });
+        set.add(new Student(1,"张三"));
+        set.add(new Student(10,"张三"));
+        set.add(new Student(1,"张"));
+        set.add(new Student(2,"李四"));
+
+        System.out.println(set);
+
+    }
 
     @Test
     public void test06(){
-        HashSet<>
+        HashSet<Student> set = new HashSet<>();
+        set.add(new Student(1,"张三"));
+        set.add(new Student(1,"张三"));//没有重写equals的话，equals等价于==
+        set.add(new Student(2,"李 四"));
+
+        System.out.println(set);
     }
 
     @Test

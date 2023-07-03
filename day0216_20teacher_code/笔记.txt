@@ -52,3 +52,45 @@
    * 相比较而已，LinkedList更专业一点，因为它实现了Queue接口。
    * 而且LinkedList还实现了Deque接口（双端队列接口）
    */
+
+   /*
+   1、Collection和Map的区别？
+   Collection：是表示一组对象
+   Map：是表示一组键值对(key,value)
+
+   Map特点：
+       key不允许重复，value允许重复
+       如果key重复了，后面的value会覆盖前面的value
+
+   2、java.util.Map<K,V>的方法
+   （1）添加
+   * V put(K key,V value)
+   * void putAll(Map<? extends K,? extends V> m)
+
+   （2）删除
+   * void clear()
+   * V remove(Object key)
+
+   （3）修改
+   没有，就是重新put，而且只能修改value，不能修改key。
+   如果key被修改了，会导致原来的数据找不到，也删不掉。
+
+   （4）查询
+   V get(Object key)
+   * boolean containsKey(Object key)
+   * boolean containsValue(Object value)
+   * boolean isEmpty()
+   int size()：获取键值对的数量
+
+   （5）遍历
+   * Set<K> keySet()：获取所有的key，然后遍历所有的key
+   * Collection<V> values()：获取所有的value，遍历所有的value
+   * Set<Map.Entry<K,V>> entrySet()：遍历所有的 键值对(key,value)
+       Map中所有的键值对(key,value)都是Map.Entry接口的实现类
+    */
+
+    /HashMap是Map接口的一个实现类
+            //HashMap<K,V>：K代表的是key的类型，V代表的value的类型
+            //例如：存储咱们班的学员姓名和他（她）对象的姓名
+            //最终实现，可以根据咱们班学员的姓名，快速找到他（她）对象的姓名
+            //咱们班学员的姓名当key, 他（她）对象的姓名当value
