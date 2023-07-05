@@ -1,6 +1,6 @@
 package com.jc.map;
 
-import com.jc.owntest.MyKey;
+import com.jc.map.MyKey;
 import com.sun.org.apache.xpath.internal.objects.XString;
 import org.junit.Test;
 
@@ -121,7 +121,7 @@ public class TestMap {
         System.out.println(map);
 
         //查询有没有同学的女朋友是小薇
-        System.out.println(map.containsValue("小薇"));//false
+        System.out.println(map.containsValue("小薇"));//false,因为“小微”是String类型，而Value是List类型
     }
 
     @Test

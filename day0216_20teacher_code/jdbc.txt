@@ -1,0 +1,3 @@
+"user" = "jia"
+"password" = 3234345
+computer = Hasee

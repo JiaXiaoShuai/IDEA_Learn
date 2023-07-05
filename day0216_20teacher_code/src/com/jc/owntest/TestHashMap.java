@@ -2,9 +2,32 @@ package com.jc.owntest;
 
 import org.junit.Test;
 
+import java.text.Collator;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Locale;
+import java.util.TreeMap;
 
 public class TestHashMap {
+
+    @Test
+    public void test04(){
+        TreeMap<Integer,Integer> map = new TreeMap<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return Collator.getInstance(Locale.CHINA).compare(String.valueOf(o1),String.valueOf(o2));
+            }
+        });
+
+
+        map.put(55,98);
+        map.put(56,45);
+        map.put(34,66);
+
+
+        System.out.println(map);//也可以用Collator.getInstance(Locale.CHINA).compare(o1,o2)进行比较，按照中文排序，比较数字也可以
+    }
+
     @Test
     public void test03(){
         //HashMap无序（输出遍历的顺序和添加的顺序不一致）
