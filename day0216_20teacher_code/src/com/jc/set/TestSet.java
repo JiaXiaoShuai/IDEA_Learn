@@ -46,6 +46,7 @@ public class TestSet {
         set.add(new Student(1,"张三"));
         set.add(new Student(1,"张三"));//没有重写equals的话，equals等价于==
         set.add(new Student(2,"李 四"));
+        set.add(new Student(3,"李 四"));
 
         System.out.println(set);
     }

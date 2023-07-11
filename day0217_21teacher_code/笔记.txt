@@ -1,0 +1,24 @@
+/**
+ * Collections 是一个操作Set、List和Map等集合的工具类，Collections中提供了一系列静态的方法对集合元素进行排序、查询和修改等操作，还提供了对集合设置不可变、对集合对象实现同步控制的方法
+ * public static <T> boolean addAll(Collection<? super T> c ,T... elements)将所有指定元素添加到指定collection中
+ *
+ * public static <T> int binarySearch(List<? extends Comparable<? super T>> list ,T key)在List集合中查找某个元素的下标，但是List元素必须是T或T的子类对象，而且必须是课比较大小的，即支持自然顺序的，有序的，否则结果不确定
+ * public static <T> int binarySearch(List<? extends T> List , T key, Comparator<? super T> c)在List集合中查找某个元素的下标，但是List的元素必须得是T或者T的子类对象，而且集合必须是按照c比较器进行排序过得，否则结果不确定
+ *
+ * public static <T extends Object & Comparable<? super T>> T max (Collection<? super T> coll)在coll集合中找出最大的元素，集合中的对象必须是T或者T的子类，而且支持自然排序
+ * public static <T> T max(Collection<? extends T> coll , Comparator<? super T> comp)在coll集合中找出最大的元素，集合中的对象必须是T或者T的子类对象，按照比较器comp找出最大者
+ *
+ * public static void reverse(List<?> list)反转指定列表list中的元素顺序
+ * public static void shuffle(List<?> list)对List集合元素进行随机排序，类似洗牌
+ *
+ * public static <T extends Comparable<? super T>> void sort(List<T> list) 根据元素的自然顺序对指定的List集合元素按升序排序
+ * public static <T> void sort(List<T> list, Comparator<? super T> c)根据指定的Comparator产生的顺序对List元素集合进行排序
+ *
+ * public static void swap(List<?> list, int i, int j)指定List集合中的i处元素和j处元素交换
+ *
+ * public static int frequency(Collection<?> c, Object o)返回指定集合中指定元素的出现次数
+ *
+ * public static <T> void copy(List<? super T> dest, List<? extends T> src)将src的内容复制到dest中
+ *
+ * public static <T> boolean replaceAll(List<T> list, T oldVal, T newVal)使用新值替换所有List集合的旧值
+ */
