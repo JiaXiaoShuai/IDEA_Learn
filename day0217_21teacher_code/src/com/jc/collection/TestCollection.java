@@ -27,8 +27,24 @@ import java.util.*;
  * public static <T> void copy(List<? super T> dest, List<? extends T> src)将src的内容复制到dest中
  *
  * public static <T> boolean replaceAll(List<T> list, T oldVal, T newVal)使用新值替换所有List集合的旧值
+ *
+ * Collections 类中提供了多个synchronizedXxx（）方法，该方法可使将指定集合包装成线程同步的集合，从而可以解决多线程并发访问集合时的线程安全问题
+ * Collections 类中提供了多个unmodifiableXxx（）方法，该方法返回指定Xxx的不可修改的视图
  */
 public class TestCollection {
+
+    @Test
+    public void test12(){
+        List<Man> list = new ArrayList<>();
+        list.add(new Man("张三",23));
+        list.add(new Man("李四",25));
+        list.add(new Man("王五",24));
+        list.add(new Man("李四",25));
+        List<Man> list1 = Collections.unmodifiableList(list);
+        /*list1.add(new Man("wo",23));
+        System.out.println(list1);//UnsupportedOperationException不支持修改操作异常*/
+
+    }
     @Test
     public void test11(){
         /*
