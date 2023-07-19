@@ -25,7 +25,7 @@ import java.util.*;
  * V remove(Object key)
  *
  * (3)
- * 没有，就是重新put，而且只能修改value，不能修改key
+ * 没有修改，就是重新put，而且只能修改value，不能修改key
  * 如果key被修改了，会导致原来的数据找不到，也删不掉
  *
  * （4）
@@ -224,6 +224,7 @@ public class TestMap {
 //        map.put("老李","小微");//键值重复时，新的会覆盖旧的value
         map.put("老王", null);
         map.put("老赵", "小花");
+        map.putIfAbsent("老",null);
 
         System.out.println(map);
 
