@@ -16,3 +16,8 @@
 14.把任意类型的集合，转化为Object[] 数组，然后用Arrays.toString()方法进行遍历，打印得到[x,x,x,x,x]形状。
 15.继承父类时，父类实现的接口不用在实现了，但是可以调用
 16.使用HashSet或者HashMap时，一定要注意重写equals和hashCode方法，否则比对不一定是你想要的结果
+17.File file = new File("文件路径");这里的文件路径可以是不存在的，但是后续的操作（读取length长度等）会不准确
+18.System.out.println(file.exists());
+           System.out.println(file.isFile());
+           System.out.println(file.isDirectory());//这三个方法，需要new File(绝对路径或者相对路径的尽量全的路径，最好是全到Project文件这里)
+19.
