@@ -27,9 +27,9 @@ public class MyKey {
 
     @Override
     public int hashCode() {
-        if(num <= 20) { //如果num值小于等于20的时候，hashCode值都是1，冲突的
+        /*if(num <= 20) { //如果num值小于等于20的时候，hashCode值都是1，冲突的
             return 1;
-        }
+        }*/
         return Objects.hash(num);
     }
     @Override

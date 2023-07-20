@@ -22,9 +22,11 @@ public class TestLearn {
         map1.put(myKey,2);
 
         MyKey myKey1 = new MyKey(3);
-        /*myKey = myKey1;*/
+        MyKey m = myKey;
+        myKey = myKey1;
         Integer integer = map1.get(myKey);
         System.out.println(integer);
+        System.out.println(map1.get(m));
         System.out.println(myKey1.hashCode());
         System.out.println(myKey.hashCode());
 
