@@ -32,6 +32,30 @@ import java.util.Arrays;
  */
 public class TestFileInputStream {
     @Test
+    public void test05() throws IOException{
+        FileInputStream fis = new FileInputStream("../download2/1.txt");
+
+        byte[] data = new byte[6];
+        /*while(true){
+            int len = fis.read(data);
+            if(len == -1) {
+                break;
+            }
+            System.out.println("len ="+len);
+            System.out.println(new String(data,0,len));
+        }*/
+
+        while(true){
+            int len = fis.read(data,2,4);
+            if(len == -1){
+                break;
+            }
+            System.out.println("len ="+len);
+//            System.out.println(new String(data,0,len));
+            System.out.println(Arrays.toString(data));
+        }
+    }
+    @Test
     public void test04() throws IOException{
         FileInputStream fis = new FileInputStream("../download2/1.txt");
 
