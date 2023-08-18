@@ -32,6 +32,38 @@ import java.util.Arrays;
  */
 public class TestFileInputStream {
     @Test
+    public void test04() throws IOException{
+        FileInputStream fis = new FileInputStream("../download2/1.txt");
+
+        byte[] data = new byte[2];
+        while(true){
+            int len = fis.read(data);
+            if(len == -1) {
+                break;
+            }
+            System.out.println("len ="+len);
+            System.out.println(new String(data,0,len));
+        }
+    }
+
+     @Test
+     public void test03() throws IOException {
+         /*
+         要以字节的方式读取一个文件：当前模块下的文件1.txt
+          */
+
+         FileInputStream fis = new FileInputStream("../download2/1.txt");
+
+         while(true){
+             int read = fis.read();
+             if(read == -1){
+                 break;
+             }
+             System.out.println(read);
+         }
+         fis.close();
+     }
+    @Test
     public void test02() throws IOException{
         FileInputStream fils = new FileInputStream("../download2/1.txt");
         byte[] data = new byte[2];
