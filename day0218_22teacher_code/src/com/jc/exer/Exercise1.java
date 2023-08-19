@@ -51,7 +51,7 @@ public class Exercise1 {
     public static void main(String[] args) {
         File file = new File("e:\\learn\\07.Git");
         System.out.println((long) getDirectoryLengthOwn(file));
-        File file1 = new File("e:\\learn\\07.Git\\01.笔记");
+        File file1 = new File("e:\\learn\\07.Git\\01.笔记.txt");
         System.out.println(getDirectoryLengthOwn(file1));
     }
 }

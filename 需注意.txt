@@ -20,3 +20,4 @@
 18.System.out.println(file.exists());
            System.out.println(file.isFile());
            System.out.println(file.isDirectory());//这三个方法，需要new File(绝对路径或者相对路径的尽量全的路径，最好是全到Project文件这里)
+19."xxxxx".getBytes():将字符串转为字节数组
