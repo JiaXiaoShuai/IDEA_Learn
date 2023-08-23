@@ -121,6 +121,23 @@
   *
   */
   /**
+   * 父类Writer类
+   * - `public void write(int c)` 写入单个字符。
+   * - `public void write(char[] cbuf) `写入字符数组。
+   * - `public void write(char[] cbuf, int off, int len) `写入字符数组的某一部分,off数组的开始索引,len写的字符个数。
+   * - `public void write(String str) `写入字符串。
+   * - `public void write(String str, int off, int len)` 写入字符串的某一部分,off字符串的开始索引,len写的字符个数。
+   * - `public void flush() `刷新该流的缓冲。
+   * - `public void close()` 关闭此流，但要先刷新它。
+   */
+  /**
+   * 父类 Reader类：
+   * - `public int read()`： 从输入流读取一个字符。 虽然读取了一个字符，但是会自动提升为int类型。返回该字符的Unicode编码值。如果已经到达流末尾了，则返回-1。
+   * - `public int read(char[] cbuf)`： 从输入流中读取一些字符，并将它们存储到字符数组 cbuf中 。每次最多读取cbuf.length个字符。返回实际读取的字符个数。如果已经到达流末尾，没有数据可读，则返回-1。
+   * - `public int read(char[] cbuf,int off,int len)`：从输入流中读取一些字符，并将它们存储到字符数组 cbuf中，从cbuf[off]开始的位置存储。每次最多读取len个字符。返回实际读取的字符个数。如果已经到达流末尾，没有数据可读，则返回-1。
+   * - `public void close()` ：关闭此流并释放与此流相关联的任何系统资源。
+   */
+  /**
    * FileInputStream类
    * 如果文件不存在，会报错java.io.FileNotFoundException: 1.txt (系统找不到指定的文件。)
    * <p>
@@ -137,3 +154,53 @@
    * -public void write(byte[] b,int off,int len):从指定的字节数组写入len字节，从偏移量off开始输出到此输出流
    * public void close()：关闭输出流并释放与此流想关联的任何系统资源
    */
+
+   /**
+    * 缓冲流：
+    * 作用是给其他IO流增加缓冲区，提高效率
+    *
+    * 缓冲流的使用必须基于其他的IO流，也就是说，缓冲流它只能装饰（包装）别的流
+    * BufferedInputStream：只能包装InputStream系列的IO流
+    * BufferedOutputStream：只能包装OutputStream系列的IO流
+    * BufferedReader:只能包装Reader系列的IO流
+    * BufferedWriter：只能包装Writer系列的IO流
+    *
+    * 原理：所有的缓冲流在内部会开辟一块更大的缓冲区，默认大小是8192字节/字符（本质就是一个8192唱的的byte/char数组）
+    *
+    *      另外，对于BufferedReader和BufferedWriter来说，它除了提高效率之外，
+    *      还可以使用下面两个方法，使得读写更方便
+    *      BufferedReader类String readLine()
+    *      BufferedWriter类void newLine()
+    */
+    /**
+     *IO流有依赖关系。外层的包装流依赖于内存的被包装流。
+     *         比如：BufferedInputStream 依赖于 FileInputStream
+     *              BufferedOutputStream 依赖于 FileOutputStream
+     *
+     *              如果把内层的IO先关闭了，外层IO流就失去了依赖，就会报错。
+     *          比喻：我坐在凳子上，我依赖于凳子，如果把凳子先撤了，我就会摔倒。
+     *          先让我站起来，然后撤凳子。
+     *
+     *          关闭的顺序是：先关闭外层的包装流，再关闭内层的被包装流。
+     *
+     *          本质：
+     *             这段代码数据的流向： 源文件 -> fis -> bis -> data数组  -> bos -> fos ->目标文件.
+     *             BufferedOutputStream和FileOutputStream，如果把fos先关了，
+     *             bos中的缓冲的数据没有办法完全写出。因为close时，会清空缓冲区。
+     *
+     *         好记：
+     *             fis被包装在里面的，比喻成内衣，先穿内衣，再穿外衣。
+     *             bis相当于外套。
+     *
+     *             fos是内衣，bos是外套。
+     *
+     *             关闭好比是脱衣服。
+     *             先脱外套，再脱内衣。
+     *
+     *            或者，先new的后关。
+     *
+     *            fis和bis有顺序关系
+     *            fos和bos有顺序关系
+     *
+     *             fis和bis 、 fos和bos是没有顺序关系。
+     */

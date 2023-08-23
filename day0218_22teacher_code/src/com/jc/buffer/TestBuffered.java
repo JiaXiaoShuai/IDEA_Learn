@@ -22,17 +22,55 @@ import java.io.*;
  *      BufferedWriter类void newLine()
  */
 public class TestBuffered {
+    public static void main(String[] args) {
+            for (int i = 0; i < 10; i++) {
+                System.out.print("Progress: " + i + "%\r");
+                try {
+                    Thread.sleep(500); // 休眠 0.5 秒
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            System.out.println("Progress: 100%");
+    }
     @Test
-    public void test03() throws IOException{
-        FileWriter fw = new FileWriter("2.txt");
+    public void test05() throws IOException{
+        FileWriter fw = new FileWriter("1.txt");
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write("hello");
+        bw.newLine();
+        bw.write("java");
+        bw.newLine();
+        bw.write("world");
+        bw.newLine();
+        bw.write("aa");
+
+        bw.close();
+        fw.close();
+    }
+    @Test
+    public void test04() throws IOException{
+        FileWriter fw = new FileWriter("1.txt");
         fw.write("hello");
-        fw.write("\r\n");
+        fw.write("\n");
         fw.write("java");
-        fw.write("\r\n");
+        fw.write("\n");
         fw.write("world");
         fw.write("\r\n");
         fw.write("aa");
         fw.close();
+
+    }
+    @Test
+    public void test03() throws IOException{
+        FileReader fr = new FileReader("1.txt");
+        BufferedReader br = new BufferedReader(fr);
+        String str;
+        while((str = br.readLine())!=null){
+            System.out.println(str);
+        }
+        br.close();
+        fr.close();
     }
 
     @Test
