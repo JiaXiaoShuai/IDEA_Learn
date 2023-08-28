@@ -21,3 +21,7 @@
            System.out.println(file.isFile());
            System.out.println(file.isDirectory());//这三个方法，需要new File(绝对路径或者相对路径的尽量全的路径，最好是全到Project文件这里)
 19."xxxxx".getBytes():将字符串转为字节数组
+
+20.FileOutputStream fos = new FileOutputStream("Test.dat",true);
+           ObjectOutputStream oos = new ObjectOutputStream(fos);
+           这两段代码中的true只针对fos写出的数据，oos写出的数据还是会被替代，而不是累计
