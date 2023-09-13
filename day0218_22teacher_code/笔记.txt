@@ -1,0 +1,206 @@
+**
+ * 1.java.io.File类
+ * 它的作用是用来表示某个文件或文件夹（文件夹又称为目录）
+ * <p>
+ * 如何使用File类的对象表示一个文件或目录的呢？
+ * API文档中描述：文件和目录路径名的抽象表示形式。
+ * 解释：如果要表示一个文件或目录，需要指定它的“路径名”，
+ * 例如：要表示Windows操作系统下的D盘Download文件夹下的北华大学实训归档材料-王海龙.zip，
+ * 那么可以这样表示 File file = new File("d:\\Download\\北华大学实训归档材料-王海龙.zip");
+ * <p>
+ * 要表示Windows操作系统下的D盘Download文件夹
+ * 那么可以这样表示 File file = new File("d:\\Download");
+ * <p>
+ * 路径分隔符：
+ * 早期Windows只支持 \
+ * 现在所有平台都支持 /
+ * <p>
+ * 2.File类的常用方法系列：
+ * public String getName() ：返回由此File表示的文件或目录名称
+ * public long length()：返回由此File表示的文件的长度
+ * 返回由此抽象路径名表示的文件的长度。如果此路径表示的是一个文件夹（目录），则返回的结果不确定
+ * public String getPath() ：将次File转为路径名字符串
+ * public long lastModified():返回File对象对应的文件或目录的最后修改时间（毫秒值）
+ * <p>
+ * 3.各种路径问题
+ * 路径名词
+ * （1）绝对路径和相对路径
+ * 绝对路径：在描述文件或文件夹时，从根目录开始导航的路径
+ * 对于windows操作系统来说，盘符就是根
+ * d:/Download
+ * d:/Download/北华大学实训归档材料-王海龙.zip
+ * 对于Linux操作系统来说，/就是根
+ * /Download
+ * 相对路径：在描述文件或文件夹时，不是从根目录开始导航的路径
+ * 例如：
+ * 例如：
+ * download/1.txt
+ * 相对于谁呢？
+ * <p>
+ * 对于IDEA中，JUnit的test方法，相对路径是相当于当前的模块
+ * 对于IDEA中，main方法，相对路径是相当于当前的project
+ * <p>
+ * （2）构造路径
+ * 在new File对象时，在()中填写的路径。
+ * 构造路径可以是相对路径，也可以绝对路径。
+ * （3）规范路径
+ * 如果路径名中出现了“.."等情况，会进行解析。
+ * String getPath()：获取的是构造路径的值
+ * String getAbsolutePath()：获取绝对路径的值
+ * String getCanonicalPath()：获取规范路径的值
+ * <p>
+ * 4、  File类的常用方法系列3
+ * 创建文件和文件夹的方法
+ * public boolean createNewFile()throws IOException  ：创建一个新文件
+ * public public boolean mkdir()：创建文件夹
+ * public public boolean mkdirs()：创建文件夹
+ * public boolean delete()：删除文件或文件夹
+ * 如果文件夹是非空目录，那么是无法删除的。即只能删除空文件夹。
+ *
+ * 5、判断某个File对象代表的文件或文件夹的情况：
+ * - public boolean exists() ：此File表示的文件或目录是否实际存在。
+ * - public boolean isDirectory() ：此File表示的是否为目录。
+ * - public boolean isFile()：此File表示的是否为文件。
+ *
+ * 如果指定的某个文件或文件夹的路径名后，这个文件或文件夹在实际的路径下不存在，不影响创建File类的对象。
+ * 如果File类对象的代表的文件或文件夹不存在，那么它既不是文件夹也不是文件。
+ *
+ * 6、对于文件夹的File对象来说，可以进行如下操作：
+ * * public String[] list()：返回一个String数组，表示该File目录中的所有子文件或目录。
+ * * public File[] listFiles(FileFilter filter)：返回所有满足指定过滤器的文件和目录。如果给定 filter 为 null，则接受所有路径名。否则，当且仅当在路径名上调用过滤器的 FileFilter.accept(File pathname)方法返回 true 时，该路径名才满足过滤器。如果当前File对象不表示一个目录，或者发生 I/O 错误，则返回 null。
+ * * public String[] list(FilenameFilter filter)：返回返回所有满足指定过滤器的文件和目录。如果给定 filter 为 null，则接受所有路径名。否则，当且仅当在路径名上调用过滤器的 FilenameFilter .accept(File dir, String name)方法返回 true 时，该路径名才满足过滤器。如果当前File对象不表示一个目录，或者发生 I/O 错误，则返回 null。
+ * * public File[] listFiles(FilenameFilter filter)：返回返回所有满足指定过滤器的文件和目录。如果给定 filter 为 null，则接受所有路径名。否则，当且仅当在路径名上调用过滤器的 FilenameFilter .accept(File dir, String name)方法返回 true 时，该路径名才满足过滤器。如果当前File对象不表示一个目录，或者发生 I/O 错误，则返回 null。
+ *
+ *  java.io.FileFilter：文件过滤接口
+ *     抽象方法：boolean accept(File pathname)
+ *     pathname是某个文件夹在列出下一级时的每一个下一级
+ *     如果pathname根据某个条件返回true,就表示要留下这个文件或文件夹
+ */
+
+ /**
+  * 1.什么是IO？
+  *  I：Input ，数据的读取，数据的输入
+  *          数据的输入，可以是从键盘输入，从文件读取，从网络接收
+  *  O：Output，写数据，数据的输出
+  *      数据的输出，可以是从控制台输出，写到文件里，发送到网络中
+  *
+  * 2.在Java中要进行IO操作需要使用IO流类来完成
+  * 现在讲的是传统的IO，阻塞式IO
+  * 后面还会接触到NIO（非阻塞式IO） 和AIO（异步IO）
+  *
+  * 基础阶段的IO流类：
+  * （1）按照方向分：
+  *  输入流类：
+  *      InputStream、Reader系列
+  *  输出流类：
+  *      OutputStream、Writer系列
+  * （2）按照操作数据的方式单位分：
+  *      字节流：
+  *          InputStream OutputStream
+  *      字符流：
+  *          Writer、Reader
+  * （3）按照角色的不同
+  *      节点流：
+  *          和数据的源头/目的地连接的IO流：
+  *              FileInputSteam、FileOutputStream、FileReader、FileWriter：读写文件（以他为例讲解）
+  *              ByteArrayInputStream、ByteArrayOutputStream、CharArrayReader、CharArrayWriter：读写数组
+  *              。。。
+  *     处理流/包装流/装饰流：
+  *     它是在其他IO流基础上，增加的功能用的。
+  *          BufferedInputStream、BufferedOutputStream、BufferedReader、BufferedWriter,给其他IO流增加缓冲功能
+  *          InputStreamReader、OutputStreamWriter,给其他IO流转换类型用的，或者给其他IO编码、解码用的
+  *          。。。
+  *  区分它们的依据是创建它们的对象的方式，如果是处理流，创建调用它们的构造器创建对象时，必须传入另一个IO流对象
+  *      FileInputStream（String name）：参数不是IO流类型
+  *      BufferedInputStream（InputStream in）：参数是IO流类型
+  *  2、IO流类的四个基类，四个超类，四个父类，其他的IO流都是从它们演变过来的，是它们的子类
+  *      字节输入流：InputStream
+  *      字节输出流：OutputSteam
+  *      字符输入流：Reader
+  *      字符输出流：Writer
+  *
+  */
+  /**
+   * 父类Writer类
+   * - `public void write(int c)` 写入单个字符。
+   * - `public void write(char[] cbuf) `写入字符数组。
+   * - `public void write(char[] cbuf, int off, int len) `写入字符数组的某一部分,off数组的开始索引,len写的字符个数。
+   * - `public void write(String str) `写入字符串。
+   * - `public void write(String str, int off, int len)` 写入字符串的某一部分,off字符串的开始索引,len写的字符个数。
+   * - `public void flush() `刷新该流的缓冲。
+   * - `public void close()` 关闭此流，但要先刷新它。
+   */
+  /**
+   * 父类 Reader类：
+   * - `public int read()`： 从输入流读取一个字符。 虽然读取了一个字符，但是会自动提升为int类型。返回该字符的Unicode编码值。如果已经到达流末尾了，则返回-1。
+   * - `public int read(char[] cbuf)`： 从输入流中读取一些字符，并将它们存储到字符数组 cbuf中 。每次最多读取cbuf.length个字符。返回实际读取的字符个数。如果已经到达流末尾，没有数据可读，则返回-1。
+   * - `public int read(char[] cbuf,int off,int len)`：从输入流中读取一些字符，并将它们存储到字符数组 cbuf中，从cbuf[off]开始的位置存储。每次最多读取len个字符。返回实际读取的字符个数。如果已经到达流末尾，没有数据可读，则返回-1。
+   * - `public void close()` ：关闭此流并释放与此流相关联的任何系统资源。
+   */
+  /**
+   * FileInputStream类
+   * 如果文件不存在，会报错java.io.FileNotFoundException: 1.txt (系统找不到指定的文件。)
+   * <p>
+   * FileOutputStream类
+   * 如果文件不存在，就会自动创建
+   * 如果文件已存在，会覆盖原来的内容
+   * 如果要追加，在创建FileOutputStream类对象时，加一个参数true
+   * <p>
+   * <p>
+   * 它的父类是OutputStream类，字节输出流
+   * <p>
+   * -public void write(int b):将指定的字节输出流，虽然参数为int类型四个字节，但是只会保留一个字节的信息写出。
+   * -public void write(byte[] b):将b.length字节从指定的字节数组写入此输出流，
+   * -public void write(byte[] b,int off,int len):从指定的字节数组写入len字节，从偏移量off开始输出到此输出流
+   * public void close()：关闭输出流并释放与此流想关联的任何系统资源
+   */
+
+   /**
+    * 缓冲流：
+    * 作用是给其他IO流增加缓冲区，提高效率
+    *
+    * 缓冲流的使用必须基于其他的IO流，也就是说，缓冲流它只能装饰（包装）别的流
+    * BufferedInputStream：只能包装InputStream系列的IO流
+    * BufferedOutputStream：只能包装OutputStream系列的IO流
+    * BufferedReader:只能包装Reader系列的IO流
+    * BufferedWriter：只能包装Writer系列的IO流
+    *
+    * 原理：所有的缓冲流在内部会开辟一块更大的缓冲区，默认大小是8192字节/字符（本质就是一个8192唱的的byte/char数组）
+    *
+    *      另外，对于BufferedReader和BufferedWriter来说，它除了提高效率之外，
+    *      还可以使用下面两个方法，使得读写更方便
+    *      BufferedReader类String readLine()
+    *      BufferedWriter类void newLine()
+    */
+    /**
+     *IO流有依赖关系。外层的包装流依赖于内存的被包装流。
+     *         比如：BufferedInputStream 依赖于 FileInputStream
+     *              BufferedOutputStream 依赖于 FileOutputStream
+     *
+     *              如果把内层的IO先关闭了，外层IO流就失去了依赖，就会报错。
+     *          比喻：我坐在凳子上，我依赖于凳子，如果把凳子先撤了，我就会摔倒。
+     *          先让我站起来，然后撤凳子。
+     *
+     *          关闭的顺序是：先关闭外层的包装流，再关闭内层的被包装流。
+     *
+     *          本质：
+     *             这段代码数据的流向： 源文件 -> fis -> bis -> data数组  -> bos -> fos ->目标文件.
+     *             BufferedOutputStream和FileOutputStream，如果把fos先关了，
+     *             bos中的缓冲的数据没有办法完全写出。因为close时，会清空缓冲区。
+     *
+     *         好记：
+     *             fis被包装在里面的，比喻成内衣，先穿内衣，再穿外衣。
+     *             bis相当于外套。
+     *
+     *             fos是内衣，bos是外套。
+     *
+     *             关闭好比是脱衣服。
+     *             先脱外套，再脱内衣。
+     *
+     *            或者，先new的后关。
+     *
+     *            fis和bis有顺序关系
+     *            fos和bos有顺序关系
+     *
+     *             fis和bis 、 fos和bos是没有顺序关系。
+     */

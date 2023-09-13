@@ -3,3 +3,25 @@
 3.基本数据类型可以自动装箱，但是无法跨越装箱比如：int——————>Double这种是错误的
 4.Collator.getInstance(Locale.CHINA)<==>Collator类型变量，用来中文排序
 5.类的静态和成员方法的调用，要看对象运行时所属的类型。避免出现报错等。
+6.int a = Collator.getInstance(Locale.CHINA).compare(o1.getName(),o2.getName());按照中文比较
+7.对于泛型通配符中的上下限问题需要严格注意，因为很有可能导致集合里的元素无法添加
+8.List集合接口中，需要注意add也可以添加集合
+9.List集合接口中，如果remove（）方法中删除的是Integer类型，切记区分出来形参是索引还是数字
+10.当用Iterator遍历集合时，如果添加或修改了某元素，则不能用在遍历中打印
+11.当用ListIterator遍历集合时，如果一起用到了next()和nextIndex()方法，那么要注意方法中的cursor（光标），因为这个cursor是被这两个方法共用的
+    next()方法的调用会使cursor加1。
+12.Java中的泛型是通过类型擦除实现的，在运行时泛型信息会被擦除，所以无法创建具体类型的泛型数组。这是为了保持与之前的版本向后兼容性。
+13.对象与对象之间传递时，要慎之又慎，例如A a，A a1，A a2，这三个对象a = a1； a1 = a2；这时a的地址为原来的a1地址，a1的地址变为a2的地址，但是a的地址还是原来a1的
+    不会再变化，因为当对象指向新的内存地址时，除非再次给它赋新的地址值，否则将不会改动。
+14.把任意类型的集合，转化为Object[] 数组，然后用Arrays.toString()方法进行遍历，打印得到[x,x,x,x,x]形状。
+15.继承父类时，父类实现的接口不用在实现了，但是可以调用
+16.使用HashSet或者HashMap时，一定要注意重写equals和hashCode方法，否则比对不一定是你想要的结果
+17.File file = new File("文件路径");这里的文件路径可以是不存在的，但是后续的操作（读取length长度等）会不准确
+18.System.out.println(file.exists());
+           System.out.println(file.isFile());
+           System.out.println(file.isDirectory());//这三个方法，需要new File(绝对路径或者相对路径的尽量全的路径，最好是全到Project文件这里)
+19."xxxxx".getBytes():将字符串转为字节数组
+
+20.FileOutputStream fos = new FileOutputStream("Test.dat",true);
+           ObjectOutputStream oos = new ObjectOutputStream(fos);
+           这两段代码中的true只针对fos写出的数据，oos写出的数据还是会被替代，而不是累计

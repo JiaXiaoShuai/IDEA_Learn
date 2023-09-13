@@ -1,0 +1,96 @@
+/**
+ * 2.List集合
+ * （1）List特点：
+ * 有序，可以重复、线性、可以根据索引操作元素
+ * <p>
+ * （2）
+ * List接口的方法
+ * java.util.List<E>,注意不要导错包了（java.awt.List这个类是界面下拉框用的）
+ * List接口是Collection的子接口，所以Collection接口的所有方法，他都有
+ * 我们下面主要介绍他新增的方法，比Collection接口多的方法
+ * a：添加
+ * void add(int index,E ele)
+ * boolean addAll(int index,Collection<? extends E> eles)
+ * b：删除
+ * E remove（int index）：指定位置元素删除
+ * c：修改
+ * E set（int index，E ele）：
+ * d:查询
+ * E get(int index):获取指定位置的元素
+ * int indexOf(Object o):查询o对象在当前List集合的位置，如果有重复的多个相同的元素，只返回第1个
+ * int lastIndexOf(Object o):查询o对象在当前List集合的位置，如果有重复的多个相同的元素，只返回最后一个
+ * List<E> subList(int fromIndex, int toIndex):截取一段[fromIndex,toIndex)
+ * e:遍历
+ * ListIterator<E> listIterator()
+ * ListIterator<E> listIterator(int index)
+ * <p>
+ * Iterator<E> 接口：
+ * boolean hasNext()
+ * E next():
+ * void remove();
+ * <p>
+ * ListIterator<E>是Iterator<E>的子接口。比Iterator功能强大
+ * 可以支持，从任意位置开始从前往后遍历，也支持从后往前遍历
+ * boolean hasPrevious()
+ * E previous()：在遍历的过程中，可以显示下标的信息
+ * int nextIndex():
+ * int previousIndex()
+ * 还可以在遍历的过程中添加和修改元素
+ * void add（E e）
+ * void add（E  e）
+ */
+ /*
+ 泛型擦除是指Java泛型中的泛型参数信息只在编译时有效，编译之后就会被擦除，也就是在运行时是不知道一个泛型的泛型参数是什么的，
+ Gen<Integer>对象和Gen<String>对象在虚拟机看来其实都是Gen对象。new SomeClass[]这样的一条语句表明的是创建了一个SomeClass类型的数组，
+ 所以如果允许你写new Gen<Integer>[10]的话，就表明创建了一个Gen<Integer>类型的数组，但这是和实际情况相悖的，
+ 因为实际上在Java虚拟机中只能创建出一个Gen类型的数组。
+  */
+
+  /**
+   * 队列：先进先出
+   * 可以使用ArrayList，更可以使用LinkedList
+   * 相比较而已，LinkedList更专业一点，因为它实现了Queue接口。
+   * 而且LinkedList还实现了Deque接口（双端队列接口）
+   */
+
+   /*
+   1、Collection和Map的区别？
+   Collection：是表示一组对象
+   Map：是表示一组键值对(key,value)
+
+   Map特点：
+       key不允许重复，value允许重复
+       如果key重复了，后面的value会覆盖前面的value
+
+   2、java.util.Map<K,V>的方法
+   （1）添加
+   * V put(K key,V value)
+   * void putAll(Map<? extends K,? extends V> m)
+
+   （2）删除
+   * void clear()
+   * V remove(Object key)
+
+   （3）修改
+   没有，就是重新put，而且只能修改value，不能修改key。
+   如果key被修改了，会导致原来的数据找不到，也删不掉。
+
+   （4）查询
+   V get(Object key)
+   * boolean containsKey(Object key)
+   * boolean containsValue(Object value)
+   * boolean isEmpty()
+   int size()：获取键值对的数量
+
+   （5）遍历
+   * Set<K> keySet()：获取所有的key，然后遍历所有的key
+   * Collection<V> values()：获取所有的value，遍历所有的value
+   * Set<Map.Entry<K,V>> entrySet()：遍历所有的 键值对(key,value)
+       Map中所有的键值对(key,value)都是Map.Entry接口的实现类
+    */
+
+    /HashMap是Map接口的一个实现类
+            //HashMap<K,V>：K代表的是key的类型，V代表的value的类型
+            //例如：存储咱们班的学员姓名和他（她）对象的姓名
+            //最终实现，可以根据咱们班学员的姓名，快速找到他（她）对象的姓名
+            //咱们班学员的姓名当key, 他（她）对象的姓名当value
