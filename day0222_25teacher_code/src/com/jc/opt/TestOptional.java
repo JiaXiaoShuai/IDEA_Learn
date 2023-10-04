@@ -34,6 +34,17 @@ boolean isPresent() ：判断容器中有没有元素
 void ifPresent(Consumer<? super T> consumer)  ：如果存在就执行xx代码
  */
 public class TestOptional {
+    public static void main(String[] args) {
+        /*
+        找到偶数的最大值
+         */
+        Random r = new Random();
+        Optional<Integer> maxOpt = Stream.of(1, 3, 5, 7, 9)
+                .filter(num -> num % 2 == 0)  //保留偶数
+                .max(Integer::compare);
+        System.out.println(maxOpt);
+        System.out.println(maxOpt.orElseThrow(()->new RuntimeException("没有偶数的最大值")));
+    }
     @Test
     public void test12(){
         /*
