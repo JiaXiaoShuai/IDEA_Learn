@@ -2,6 +2,7 @@ package com.jc.test;
 
 import org.junit.Test;
 
+import java.util.Scanner;
 import java.util.function.Function;
 
 public class A {
@@ -18,6 +19,13 @@ public class A {
         Function<String, String> stringStringFunction = s -> s.toLowerCase();
         System.out.println(stringStringFunction.apply("JAIOSJFOASJ"));
 
+    }
+
+    @Test
+    public void test02(){
+        Scanner sc = new Scanner(System.in);
+        int i = sc.nextInt();
+        System.out.println(i);
     }
 
     public static void main(String[] args) {

@@ -25,3 +25,5 @@
 20.FileOutputStream fos = new FileOutputStream("Test.dat",true);
            ObjectOutputStream oos = new ObjectOutputStream(fos);
            这两段代码中的true只针对fos写出的数据，oos写出的数据还是会被替代，而不是累计
+21.选择 Help -》 Edit custom VM options，添加：-Deditable.java.test.console=true，然后重启idea生效。（@Test测试键盘输入无效解决办法）
+22.哪个模块需要打印日志，那么jar包就放在哪个模块下面，不能放入整个Project项目下
