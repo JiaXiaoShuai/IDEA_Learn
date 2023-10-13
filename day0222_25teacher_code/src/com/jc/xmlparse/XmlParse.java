@@ -71,7 +71,8 @@ public class XmlParse {
 
 
         Collections.max(list.stream().map(Student::getAge).collect(Collectors.toList()));
-        //求年龄最大的学生
+        //求年龄最大的学生使用lambda表达式
+        Student maxAgeStudent1 = Collections.max(list, (o1, o2) -> o1.getAge() - o2.getAge());
         Student maxAgeStudent = list.get(0);
         for (int i = 1; i < list.size(); i++) {
             Student student = list.get(i);
