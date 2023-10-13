@@ -9,7 +9,9 @@ import org.dom4j.io.SAXReader;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 利用dom4j解析xml文件
@@ -65,6 +67,17 @@ public class XmlParse {
         //遍历操作
         for (Student student : list) {
             System.out.println(student);
+        }
+
+
+        Collections.max(list.stream().map(Student::getAge).collect(Collectors.toList()));
+        //求年龄最大的学生
+        Student maxAgeStudent = list.get(0);
+        for (int i = 1; i < list.size(); i++) {
+            Student student = list.get(i);
+            if(student.getAge() > maxAgeStudent.getAge()){
+                maxAgeStudent = student;
+            }
         }
     }
 }
